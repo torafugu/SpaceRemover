@@ -62,7 +62,14 @@ namespace SpaceRemover
                     }
 
                     // Rename files.
-                    System.IO.File.Move(droppedFile, droppedFile + ".bak");
+                    if (checkBox1.Checked)
+                    {
+                        System.IO.File.Move(droppedFile, droppedFile + ".bak");
+                    }
+                    else
+                    {
+                        System.IO.File.Delete(droppedFile);
+                    }
                     System.IO.File.Move(droppedFile + ".new", droppedFile);
                 }
 
